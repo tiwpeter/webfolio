@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
-import { Container, Col, Nav, Row, Tab, TabContainer } from 'react-bootstrap'; // แก้ชื่อคอมโพเนนต์ที่นำเข้ามา
-
 import IMG1 from '../../assets/e1.png';
 import IMG2 from '../../assets/Edit.png';
 import IMG3 from '../../assets/phon.png';
 import IMG4 from '../../assets/tews2.png';
-import IMG5 from '../../assets/darshboad.png';
-import { FaPlus } from 'react-icons/fa';
 import './styles.css'; // import CSS file
+import IMG5 from '../../assets/darshboad.png';
+import { FaPlus } from 'react-icons/fa'; // Import Plus icon from react-icons library
 
-import { ProjectCard } from './ProjecCard';
-import './projecs.css'
-import TrackVisibility from 'react-on-screen';
-
-export const  Projects = () => {
-
-const projects = [
+const data = [
   {
     id: 1,
     image: IMG4,
@@ -61,57 +53,62 @@ const projects = [
   },
 ];
 
-return (
-  <section className="project" id="projects">
-    <Container>
-      <Row>
-        <Col size={12}>
-          <TrackVisibility>
-            {({ isVisible }) =>
-            <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-              <h2>Projects</h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                  <Nav.Item>
-                    <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="third">Tab 3</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-                <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                  <Tab.Pane eventKey="first">
-                    <Row>
-                      {
-                        projects.map((project, index) => {
-                          return (
-                            <ProjectCard
-                              key={index}
-                              {...project}
-                              />
-                          )
-                        })
-                      }
-                    </Row>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="section">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="third">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                  </Tab.Pane>
-                </Tab.Content>
-              </Tab.Container>
-            </div>}
-          </TrackVisibility>
-        </Col>
-      </Row>
-    </Container>
-    <img className="background-image-right" ></img>
-  </section>
-)
+function Portfolio() {
+  const [isHovered, setIsHovered] = useState(false);
+
+    return (
+    <section id='portfolio' className="bg-gray-100 py-8">
+      <div>
+        <button>react</button>
+        <h1>All</h1>
+      </div>
+      <div className="container mx-auto px-4 flex space-x-4">
+        <div
+          className={`bg-white shadow-md rounded-lg p-4 ${isHovered ? 'hovered' : ''}`}
+          style={{
+            background: "#1d1836", // กำหนดสีพื้นหลัง
+            color: "#fff", // กำหนดสีข้อความ
+            borderRadius: "8px", // กำหนดขอบโค้งของกรอบ
+            maxWidth: "200px", // กำหนดความกว้างสูงสุด
+            margin: "0 0.5rem", // กำหนด margin ระหว่าง div
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <img
+            src={IMG5}
+            className=''
+            alt="Portfolio Image" // เพิ่ม attribute alt เพื่อให้รู้จักกรอบ
+          />
+          <p>fff</p>
+          <h1 className="text-3xl font-bold underline">
+            Hello world!
+          </h1>
+        </div>
+
+        <div
+          className="bg-white shadow-md rounded-lg p-4"
+          style={{
+            background: "#1d1836", // กำหนดสีพื้นหลัง
+            color: "#fff", // กำหนดสีข้อความ
+            borderRadius: "8px", // กำหนดขอบโค้งของกรอบ
+            maxWidth: "200px", // กำหนดความกว้างสูงสุด
+            margin: "0 0.5rem" // กำหนด margin ระหว่าง div
+          }}
+        >
+          <img
+            src={IMG5}
+            className=''
+            alt="Portfolio Image" // เพิ่ม attribute alt เพื่อให้รู้จักกรอบ
+          />
+          <p>fff</p>
+          <h1 className="text-3xl font-bold underline">
+            Hello world!
+          </h1>
+        </div>
+      </div>
+    </section>
+  );
 }
+
+export default Portfolio;
