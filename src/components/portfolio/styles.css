@@ -1,0 +1,51 @@
+/* styles.css */
+
+
+.portfolio__item-description2 {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+   /* background-color: #f9f9f9;*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+.portfolio__item-description {
+    border: 1px solid gold; /* เปลี่ยนสีขอบเป็นสีทอง */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+   /* background-color: #f9f9f9;*/
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+.portfolio__item-description {
+    position: relative; /* Ensure the container is positioned */
+  }
+  
+.btn-toggle-description2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+  }
+
+.BB{
+  display : flex;
+  justify-content: space-between; /* จัดวางระยะห่างระหว่างองค์ประกอบทางตัวแนวนอน */
+
+}
+
+.git{
+}
+
+.dd {
+  background: "#1d1836"; /* กำหนดสีพื้นหลัง */
+  color: "#fff"; /* กำหนดสีข้อความ */
+  border-radius: 8px; /* กำหนดขอบโค้งของกรอบ */
+}
+.image-size {
+  width: 100%;
+  height: auto;
+  max-width: 400px; /* ปรับขนาดรูปภาพตามที่ต้องการ */
+
+}

@@ -1,0 +1,11 @@
+.portfolio__description {
+    display: none; /* ซ่อนคำอธิบายเริ่มต้น */
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .portfolio__item:hover .portfolio__description {
+    display: block; /* แสดงคำอธิบายเมื่อโฮเวอร์ */
+  }
