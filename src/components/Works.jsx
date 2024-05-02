@@ -1,26 +1,28 @@
-import React , {useState}from 'react'
+// Works.jsx
+import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
-import { styles } from '../style'
-import { projects } from "../constants"; // = id
-import {Tilt} from "react-tilt";
-import ProjectTag from './ProjectTag'
+import { styles } from '../style';
+import { projects } from "../constants"; 
+import { Tilt } from "react-tilt";
+import ProjectTag from './ProjectTag';
 
 function Works() {
-  const [tag, setTag] = useState("All"); // ย้าย useState ไปใน Works()
+  const [type, setType] = useState("All"); 
 
-  const handleTagChange = (newTag) => {
-    setTag(newTag)
+  const handleTypeChange = (newType) => {
+    setType(newType);
   };
 
   const ProjectCard = ({
     index,
     name,
     description,
-    tags,
+    types,
     image,
     source_code_link,
   }) => {
+    const isTypeSelected = types.some(projectType => projectType === "All" || projectType.name === type);
     return (
       <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
         <Tilt
@@ -46,7 +48,7 @@ function Works() {
         </Tilt>
       </motion.div>
     );
-  }
+  };
 
   return (
     <>
@@ -60,27 +62,29 @@ function Works() {
           Project
         </h2>
         <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-          <ProjectTag 
-          onClick={handleTagChange} 
-          tag="All" 
-          isSelected={tag === "All"}
-          />
-
-          <ProjectTag 
-          onClick={handleTagChange} 
-          tag="Web" 
-          isSelected={tag === "Web"}
-          />
+              {projects.flatMap(project => project.tags).map((tag, index) => (
+        <ProjectTag 
+          key={index} 
+          type={tag.name} 
+          onClick={handleTypeChange} 
+          isSelected={tag === "All" || tag.name === type} 
+        />
+      ))}
         </div>
       </motion.div>
 
       <div className="mt-20 flex flex-wrap gap-7">
-        {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
-        ))}
+      {projects.flatMap(project => project.tags).map((tag, index) => (
+        <ProjectTag 
+          key={index} 
+          type={tag.name} 
+          onClick={handleTypeChange} 
+          isSelected={tag === "All" || tag.name === type} 
+        />
+      ))}
       </div>
     </>
-  )
+  );
 }
 
-export default Works
+export default Works;
