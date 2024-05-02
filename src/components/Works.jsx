@@ -22,7 +22,6 @@ function Works() {
     image,
     source_code_link,
   }) => {
-    const isTypeSelected = types.some(projectType => projectType === "All" || projectType.name === type);
     return (
       <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
         <Tilt
@@ -62,27 +61,27 @@ function Works() {
           Project
         </h2>
         <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-              {projects.flatMap(project => project.tags).map((tag, index) => (
-        <ProjectTag 
-          key={index} 
-          type={tag.name} 
-          onClick={handleTypeChange} 
-          isSelected={tag === "All" || tag.name === type} 
-        />
-      ))}
+            <ProjectTag 
+              type="All" // Pass the types array of the project
+              onClick={handleTypeChange} 
+              isSelected={type === "All" } 
+            />
+            <ProjectTag 
+              type="React&Django" // Pass the types array of the project
+              onClick={handleTypeChange} 
+              isSelected={type === "React&Django" } 
+            />
+            
+          
         </div>
       </motion.div>
 
       <div className="mt-20 flex flex-wrap gap-7">
-      {projects.flatMap(project => project.tags).map((tag, index) => (
-        <ProjectTag 
-          key={index} 
-          type={tag.name} 
-          onClick={handleTypeChange} 
-          isSelected={tag === "All" || tag.name === type} 
-        />
-      ))}
+        {projects.map((project, index) => (
+          <ProjectCard key={`project-${index}`} index={index} {...project} />
+        ))}
       </div>
+
     </>
   );
 }
