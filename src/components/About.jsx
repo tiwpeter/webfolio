@@ -7,7 +7,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import { services } from "../constants"; // icon + title
 import { SectionWrapper } from "../hoc";
 
-// กำหนด และ ดึง icon + title
+// กำหนด และ ดึง icon + title for services
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt className='xs:w-[250px] w-full'>
     <motion.div
@@ -73,3 +73,8 @@ function About() {
 
 export default SectionWrapper (About, "about")
 // use section wrap
+
+
+
+// กำหนด และ ดึง icon + title for services with ServiceCard
+// then bring wrap with SectionWrapper

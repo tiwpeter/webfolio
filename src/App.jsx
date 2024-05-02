@@ -8,6 +8,7 @@ import Works from './components/Works';
 import Feedbacks from './components/Feedbacks';
 import Contact from './components/Contact';
 import StarsCanvas from './components/StarsCanvas';
+import Tech from './components/Tech';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -21,6 +22,8 @@ const App = () => {
         </div>
         <About/>
         <Experience/>
+
+        <Tech/>
         <Works/>
         <Feedbacks/>
         <div className="relative z-0">
