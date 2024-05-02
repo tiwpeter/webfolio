@@ -198,10 +198,10 @@ const testimonials = [
 
 const projects = [
   {
+    types: "all",
     name: "Car Rent",
-    description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-    tags: [
+    description: "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+    tags: [ 
       {
         name: "react",
         color: "blue-text-gradient",
@@ -214,11 +214,17 @@ const projects = [
         name: "tailwind",
         color: "pink-text-gradient",
       },
+      {
+        name: "React&Django",
+        color: "yellow-text-gradient", // เลือกสีตามที่เหมาะสม
+      },
     ],
     image: carrent,
     source_code_link: "https://github.com/",
   },
+
   {
+    types:"Web",
     name: "Job IT",
     description:
       "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",

@@ -1,9 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "../utils/motion";
+import { styles } from '../style';
+import { projects } from "../constants"; 
+import { Tilt } from "react-tilt";
+import ProjectTag from './ProjectTag';
 
 function Works() {
+  const [type, setType] = useState("All"); 
+
+  const handleTypeChange = (newType) => {
+    console.log("Clicked tag:", newType);
+    setType(newType);
+  };
+
+  const filteredProjects = type === "All" ? projects : projects.filter((project) =>
+    project.tags.some(tag => tag.name === type)
+  );
+
+  const ProjectCard = ({ index, name, description, image }) => {
+    return (
+      <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+        <Tilt
+          options={{
+            max: 45,
+            scale: 1,
+            speed: 450,
+          }}
+          className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+        >
+          <div className="relative w-full h-[230px]">
+            <img
+              src={image}
+              alt={name}
+              className='w-full h-full object-cover rounded-2xl'
+            />
+          </div>
+          <div className="mt-5">
+            <h3>{name}</h3>
+            <p>{description}</p>
+          </div>
+        </Tilt>
+      </motion.div>
+    );
+  };
+
   return (
-    <div>Works</div>
-  )
+    <>
+      <h2 className=''>d</h2>
+      <motion.div variants={textVariant()}>
+        <p className={styles.sectionSubText}>My work</p>
+        <h2 className={styles.sectionHeadText}>Project</h2>
+        <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+          <ProjectTag 
+            type="All"
+            onClick={handleTypeChange} 
+            isSelected={type === "All" } 
+          />
+          <ProjectTag 
+            type="React&Django"
+            onClick={handleTypeChange} 
+            isSelected={type === "React&Django" } 
+          />
+        </div>
+      </motion.div>
+      <div className="mt-20 flex flex-wrap gap-7">
+        {filteredProjects.map((project, index) => (
+          <ProjectCard key={`project-${index}`} index={index} {...project} />
+        ))}
+      </div>
+    </>
+  );
 }
 
-export default Works
+export default Works;
