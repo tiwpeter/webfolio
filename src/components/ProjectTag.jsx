@@ -8,7 +8,10 @@ const ProjectTag = ({ type, onClick, isSelected }) => {
   return (
     <button
       className={`${buttonStyles} rounded-full border-2 px-6 py-3 text-xl cursor-pointer`}
-      onClick={() => onClick(type)} // Send type to handleTypeChange function
+      onClick={() => {
+        console.log("Clicked tag:", type);
+        onClick(type); // ส่งชื่อแท็ก (tags) ของโปรเจกต์ไปยังฟังก์ชัน handleTypeChange
+      }}
     >
       {type}
     </button>

@@ -1,4 +1,3 @@
-// Works.jsx
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
@@ -11,17 +10,15 @@ function Works() {
   const [type, setType] = useState("All"); 
 
   const handleTypeChange = (newType) => {
+    console.log("Clicked tag:", newType);
     setType(newType);
   };
 
-  const ProjectCard = ({
-    index,
-    name,
-    description,
-    types,
-    image,
-    source_code_link,
-  }) => {
+  const filteredProjects = type === "All" ? projects : projects.filter((project) =>
+    project.tags.some(tag => tag.name === type)
+  );
+
+  const ProjectCard = ({ index, name, description, image }) => {
     return (
       <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
         <Tilt
@@ -39,7 +36,6 @@ function Works() {
               className='w-full h-full object-cover rounded-2xl'
             />
           </div>
-
           <div className="mt-5">
             <h3>{name}</h3>
             <p>{description}</p>
@@ -52,36 +48,27 @@ function Works() {
   return (
     <>
       <h2 className=''>d</h2>
-
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>
-          My work
-        </p>
-        <h2 className={styles.sectionHeadText}>
-          Project
-        </h2>
+        <p className={styles.sectionSubText}>My work</p>
+        <h2 className={styles.sectionHeadText}>Project</h2>
         <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-            <ProjectTag 
-              type="All" // Pass the types array of the project
-              onClick={handleTypeChange} 
-              isSelected={type === "All" } 
-            />
-            <ProjectTag 
-              type="React&Django" // Pass the types array of the project
-              onClick={handleTypeChange} 
-              isSelected={type === "React&Django" } 
-            />
-            
-          
+          <ProjectTag 
+            type="All"
+            onClick={handleTypeChange} 
+            isSelected={type === "All" } 
+          />
+          <ProjectTag 
+            type="React&Django"
+            onClick={handleTypeChange} 
+            isSelected={type === "React&Django" } 
+          />
         </div>
       </motion.div>
-
       <div className="mt-20 flex flex-wrap gap-7">
-        {projects.map((project, index) => (
+        {filteredProjects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
       </div>
-
     </>
   );
 }
