@@ -72,7 +72,6 @@ function Works() {
 
   return (
     <>
-      <h2 className=''>d</h2>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>My work</p>
         <h2 className={styles.sectionHeadText}>Project</h2>
