@@ -25,6 +25,10 @@ import {
   threejs,
 } from "../assets";
 
+import Trackinkg from "../assets/Trackking.png"
+import dashboard from "../assets/dashborad.png"
+import shipping from "../assets/shipping.png"
+
 export const navLinks = [
   {
     id: "about",
@@ -215,7 +219,7 @@ const projects = [
   {
     types: "all",
     name: "Track to price",
-    description: "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+    description: "Web-based platform that allows users product to price tracking closely through email.",
     tags: [ 
       {
         name: "react",
@@ -234,7 +238,7 @@ const projects = [
         color: "yellow-text-gradient", // เลือกสีตามที่เหมาะสม
       },
     ],
-    image: carrent,
+    image: Trackinkg,
     source_code_link: "https://github.com/",
   },
 
@@ -242,7 +246,7 @@ const projects = [
     types:"Web",
     name: "Dashboard",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Web-based platform used to display various information or statistics. Used to track progress and manage business information So that users can easily and quickly see, analyze and manage data..",
     tags: [
       {
         name: "react",
@@ -257,7 +261,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: dashboard,
     source_code_link: "https://github.com/",
   },
   {
@@ -278,7 +282,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: shipping,
     source_code_link: "https://github.com/",
   },
   {
