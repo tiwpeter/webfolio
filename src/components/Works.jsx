@@ -6,7 +6,8 @@ import { projects } from "../constants";
 import { Tilt } from "react-tilt";
 import ProjectTag from './ProjectTag';
 import { github } from "../assets";
-
+import view from "../assets/visibility.png";
+ 
 function Works() {
   const [type, setType] = useState("All"); 
 
@@ -19,7 +20,7 @@ function Works() {
     project.tags.some(tag => tag.name === type)
   );
 
-  const ProjectCard = ({ index, name, description, image,source_code_link,tags }) => {
+  const ProjectCard = ({ index, name, description, image, source_code_link, deploy_link, tags }) => {
     return (
       <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
         <Tilt
@@ -39,6 +40,16 @@ function Works() {
           </div>
 
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+            <div
+              onClick={() => window.open(deploy_link, "_blank")}
+              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+            >
+              <img
+                src={view}
+                alt='source code'
+                className='w-1/2 h-1/2 object-contain'
+              />
+            </div>
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
@@ -80,6 +91,11 @@ function Works() {
             type="All"
             onClick={handleTypeChange} 
             isSelected={type === "All" } 
+          />
+          <ProjectTag 
+            type="Web"
+            onClick={handleTypeChange} 
+            isSelected={type === "Web" } 
           />
           <ProjectTag 
             type="React&Django"

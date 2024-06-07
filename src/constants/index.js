@@ -217,6 +217,29 @@ const testimonials = [
 
 const projects = [
   {
+    types:"Web",
+    name: "Dashboard",
+    description:
+      "Web-based platform used to display various information or statistics. Used to track progress and manage business information So that users can easily and quickly see, analyze and manage data..",
+    tags: [
+      {
+        name: "Web",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "restapi",
+        color: "green-text-gradient",
+      },
+      {
+        name: "scss",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: dashboard,
+    source_code_link: "https://github.com/tiwpeter/dashboard-e-commerce",
+    deploy_link : "https://deploy2-flax.vercel.app/dashboard",
+  },
+  {
     types: "all",
     name: "Track to price",
     description: "Web-based platform that allows users product to price tracking closely through email.",
@@ -242,28 +265,7 @@ const projects = [
     source_code_link: "https://github.com/",
   },
 
-  {
-    types:"Web",
-    name: "Dashboard",
-    description:
-      "Web-based platform used to display various information or statistics. Used to track progress and manage business information So that users can easily and quickly see, analyze and manage data..",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: dashboard,
-    source_code_link: "https://github.com/",
-  },
+  
   {
     name: "Web Shipping",
     description:
