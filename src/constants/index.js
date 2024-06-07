@@ -287,6 +287,7 @@ const projects = [
     image: shipping,
     source_code_link: "https://github.com/",
   },
+  /*
   {
     name: "Android App ",
     description:
@@ -370,7 +371,7 @@ const projects = [
     ],
     image: tripguide,
     source_code_link: "https://github.com/",
-  },
+  },*/
 ];
 
 export { services, technologies, experiences, testimonials, projects };
